@@ -1,0 +1,79 @@
+<body>
+<div class="col-md-16">
+  <div class="col-md-2">
+    <button  type="button" class="btn btn-success center-block" (click)="visHighscore()">
+      Highscore
+    </button>
+    <ul style="text-align: left" class="list-group center-block">
+      <a class="list-group-item"
+         style="cursor: pointer"
+         *ngFor="let player of highscore">Navn: {{player.name}} Score: {{player.score}}</a>
+    </ul>
+  </div>
+
+  <div class="col-md-8">
+    <div class="row">
+    <div style="horiz-align:right; text-align:center">
+      <img [src]="image" alt="'assets/images/forkert6.png'"
+           style="max-height: 300px">
+    </div>
+
+    <p>Hej {{name}}</p>
+    <p>Brugte bogstaver</p>
+    <p>{{brugte}}</p>
+    <p>Antal forkerte</p>
+    <P>{{antal}}</P>
+
+    <p>Ordet: </p>
+    <p>{{synligt}}</p>
+
+    <hr>
+
+    <form style="text-align: center"  id="formin" (ngSubmit)="makeGuess(inputElement.value)" *ngIf="!slut">
+      <label for="input">Gæt bogstav her</label>
+      <input autofocus="autofocus"
+        onfocus="this.value=''"
+        form="formin"
+        [maxLength]="1"
+        inputmode="text"
+        id="input" autocomplete="off"
+        #inputElement>
+
+    </form>
+    <button *ngIf="slut" autofocus="autofocus" type="button" class="btn btn-success center-block" (click)="spiligen()">Spil
+      igen
+    </button>
+    </div>
+  </div>
+  <div class="col-md-16" *ngIf="admin">
+    <button autofocus="autofocus" type="button"
+            class="btn btn-warning center-block" (click)="slethighscore()">Slet Highscore
+    </button>
+    <br>
+    Ordet: {{ordet}}
+    <br>
+    <br>
+    <p class="text-center">Sessionmap</p>
+    <ul class="list-group center-block col-md-2">
+      <a class="list-group-item"
+         style="cursor: pointer"
+         *ngFor="let player of sessionmap">Navn: {{player.name}}</a>
+    </ul>
+    <form style="text-align: center"  id="map" (ngSubmit)="removeuser(inputElement.value)" id="formb">
+      <label for="inputb">
+        Fjern bruger
+      </label>
+      <input autofocus="autofocus"
+             onfocus="this.value=''"
+             form="formb"
+             inputmode="text"
+             id="inputb" autocomplete="off"
+             #inputElement
+            class="col-md-2"
+      >
+
+    </form>
+
+  </div>
+</div>
+</body>

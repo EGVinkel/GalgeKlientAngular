@@ -1,0 +1,20 @@
+
+  <div class="col-md-12" style="text-align: center">
+    <div>
+      <h3>Velkommen til Galgeleg</h3>
+      <h6>Du skal logge ind for at spille</h6>
+      <hr>
+      <p>Brugernavn</p>
+      <label>
+        <input type="text" #navn>
+      </label>
+      <br>
+      <p>Kodeord</p>
+      <label>
+        <input type="password" #password>
+      </label>
+      <br>
+      <button autofocus="autofocus" type="button" class="btn btn-success" (click)="login(navn.value, password.value)">Log ind</button>
+    </div>
+  </div>
+

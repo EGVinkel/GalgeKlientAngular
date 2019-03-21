@@ -1,0 +1,8 @@
+<div class="container">
+    <div class="col">
+        <div class="col-md-12">
+            <app-login (pwaccept)='onPasswordaccept($event)' *ngIf="!password"></app-login>
+            <app-game *ngIf="password"></app-game>
+        </div>
+    </div>
+</div>
